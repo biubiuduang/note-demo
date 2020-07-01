@@ -2,8 +2,6 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/parent1">Props / $emit</router-link> |
-      <router-link to="/bus">Event Bus</router-link>
     </div>
     <router-view/>
   </div>
