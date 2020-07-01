@@ -13,7 +13,7 @@ Vue.use(VueRouter)
     {
       path: '/parent',
       name: 'Parent',
-      component: () => import('../views/index.vue')
+      component: () => import('../views/Parent.vue')
     }
 ]
 

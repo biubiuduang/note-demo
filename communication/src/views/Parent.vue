@@ -1,9 +1,10 @@
+<!-- Parent.vue -->
 <template>
   <div>
   	<p>Parent</p>
-	<button @click="getChildVal">获取子传给父的值(this.$children.toParent)</button><br/>
+	<button @click="getChildVal">获取子传给父的值(this.$children[0].toParent)</button><br/>
 	<p v-if="childVal">{{childVal}}</p>
-	<button @click="getChildVal">获取子传给父的值(this.$children.toParent)</button><br/>
+	<button @click="getChildByRefs">获取子传给父的值(this.$refs.child1.toParentRefs)</button><br/>
 	<p v-if="childRefsVal">{{childRefsVal}}</p>
 	<p>----------------------------------</p>
 	<Child ref="child1"></Child>
@@ -11,7 +12,7 @@
 </template>
 
 <script>
-  import Child from "./Child";
+  import Child from "../components/Child";
   export default {
 	components: {
 	  Child
@@ -31,12 +32,8 @@
 	    this.childVal = this.$children[0].toParent();
 	  },
 	  getChildByRefs() {
-	    this.childVal =
+	    this.childRefsVal = this.$refs.child1.toParentRefs();
 	  }
 	},
   };
 </script>
-
-<style scoped>
-
-</style>

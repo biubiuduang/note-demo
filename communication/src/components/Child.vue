@@ -1,3 +1,4 @@
+<!-- Child.vue -->
 <template>
   <div>
   	<p>Child</p>
@@ -13,7 +14,8 @@
     data() {
       return {
         parent: '',
-		root: ''
+		root: '',
+		count: 1
 	  }
 	},
 	methods: {
@@ -21,11 +23,13 @@
 		this.parent = this.$parent.handleParent();
 	  },
 	  getRoot() {
-	    console.log(this.$root);
 	    this.root = this.$root.handleRoot();
 	  },
 	  toParent() {
-	    return 'children value to parent'
+	    return `children value to parent ${this.count++}`
+	  },
+	  toParentRefs(){
+	    return 'children refs value to parent'
 	  }
 	},
   };
