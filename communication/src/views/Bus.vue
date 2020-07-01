@@ -2,6 +2,8 @@
   <div>
   	<Bus1></Bus1>
 	<Bus2></Bus2>
+	<h1>event bus 基本实现</h1>
+	<img src="../assets/bus.png" alt="">
   </div>
 </template>
 
