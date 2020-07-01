@@ -10,5 +10,10 @@ Vue.prototype.$bus = new Vue()
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  methods : {
+    handleRoot() {
+      return 'event from root'
+    }
+  }
 }).$mount('#app')

@@ -10,6 +10,11 @@ Vue.use(VueRouter)
     name: 'Home',
     component: Home
   },
+    {
+      path: '/parent',
+      name: 'Parent',
+      component: () => import('../views/index.vue')
+    }
 ]
 
 const router = new VueRouter({

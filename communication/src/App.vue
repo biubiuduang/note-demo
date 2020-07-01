@@ -2,10 +2,20 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
+      <router-link to="/parent">$Parent</router-link> |
     </div>
     <router-view/>
   </div>
 </template>
+<script>
+  export default {
+    methods: {
+      handleRoot() {
+        return 'event from root'
+      }
+    },
+  }
+</script>
 
 <style lang="less">
 #app {
