@@ -4,17 +4,22 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
   },
-    {
-      path: '/parent',
-      name: 'Parent',
-      component: () => import('../views/Parent.vue')
-    }
+  {
+    path: '/parent',
+    name: 'Parent',
+    component: () => import('../views/Parent.vue')
+  },
+  {
+    path: '/grandpa',
+    name: 'Grandpa',
+    component: () => import('../views/Grandpa.vue')
+  }
 ]
 
 const router = new VueRouter({

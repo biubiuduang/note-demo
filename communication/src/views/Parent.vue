@@ -6,7 +6,7 @@
 	<p v-if="childVal">{{childVal}}</p>
 	<button @click="getChildByRefs">获取子传给父的值(this.$refs.child1.toParentRefs)</button><br/>
 	<p v-if="childRefsVal">{{childRefsVal}}</p>
-	<p>----------------------------------</p>
+	<hr/>
 	<Child ref="child1"></Child>
   </div>
 </template>

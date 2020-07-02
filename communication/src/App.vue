@@ -3,6 +3,7 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/parent">$Parent</router-link> |
+      <router-link to="/grandpa">$attrs / $listeners</router-link> |
     </div>
     <router-view/>
   </div>
