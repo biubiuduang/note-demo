@@ -1,3 +1,4 @@
+<!-- child -->
 <template>
   <div>
 	<p>Child</p>

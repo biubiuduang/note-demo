@@ -1,3 +1,4 @@
+<!-- parent -->
 <template>
   <div class="home">
     <p>Home</p>
