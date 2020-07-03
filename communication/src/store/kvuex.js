@@ -48,12 +48,15 @@ class Store {
 	// store._getters.doubleCount(store.state)
 	
 	this.getters = options.getters || {};
-	// var val = options.getters.doubleCounter(store.state);
-	// Object.defineProperty(this.getters,'doubleCounter',{
-	//   get(){
-	//     return val;
-	//   }
-	// })
+	var val = options.getters.doubleCounter;
+	
+	console.log(val(store.state))
+	
+	Object.defineProperty(this.getters,'doubleCounter',{
+	  get(){
+	    return val(store.state);
+	  }
+	})
 	
   }
   get state(){
@@ -65,6 +68,7 @@ class Store {
   }
   //实现commit
   commit(type, payload){
+    console.log(this.getters.doubleCounter);
 	const entry = this._mutations[type]
 	if(!entry){
 	  
