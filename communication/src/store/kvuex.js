@@ -26,39 +26,25 @@ class Store {
 	  action.call(store,type,payload)
 	}
 	
-	// console.log(options.getters);
-	
 	//getters
 	//1.遍历用户传入的getters所有的key，动态的赋值，其中是函数的执行结果
 	//2.确保它是响应式的，Object.defineProperty(this.getters,key,{get(){}})
 	//3.缓存结果 可以利用computed
-	// this.getters = options.getters || {};
-	// // this.getters.doubleCounter = options.getters.doubleCounter(store.state)
- 	// var a = options.getters.doubleCounter(store.state);
-	// Object.defineProperty(this.getters,'doubleCounter',{
-	//   get(){
-	//     return a;
-	//   },
-	//   set(val){
-	//     a = options.getters.doubleCounter(store.state);
-	//   	console.log(val);
-	//   }
-	// })
-	// console.error(store._getters.doubleCount(store.state));
-	// store._getters.doubleCount(store.state)
 	
 	this.getters = options.getters || {};
 	var computed = {};
 	Object.keys(options.getters).forEach(key => {
 	  var fn = options.getters[key];
-	  Object.defineProperty(this.getters,'doubleCounter',{
+	  computed[key] = function(){
+	    return fn(store.state)
+	  }
+	  Object.defineProperty(this.getters,key,{
 		get(){
 		  return fn(store.state);
 		}
 	  })
 	})
 	this._vm.$computed = computed;
-	
   }
   get state(){
     return this._vm._data.$$state
