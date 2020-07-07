@@ -6,66 +6,33 @@
 </head>
 <body>
 <div id="app">
-  <!-- demo1 -->
-  <p>{{count}}</p>
+  <p @click="add">{{counter}}</p>
+  <p k-text="counter"></p>
+  <p k-html="html"></p>
 </div>
+<div id="whb"></div>
 
-<!-- demo1 -->
 <!--<script src="../node_modules/vue/dist/vue.js"></script>-->
-<!--<script>-->
-<!--  new Vue({-->
-<!--    el: "#app",-->
-<!--    data() {-->
-<!--      return {-->
-<!--        count: 2-->
-<!--      };-->
-<!--    },-->
-<!--  })-->
-<!--</script>-->
-
-<!-- demo2 -->
+<script src="KVue.js"></script>
+<!--<script src="mvue.js"></script>-->
 <script>
-  function defineReactive(obj,key,val){
-    //解决obj嵌套问题
-    observe(val);
-    Object.defineProperty(obj,key,{
-      get() {
-        console.log(`get ${key}:${val}`);
-        return val
-      },
-      set(newVal){
-        console.log(`set ${key} : ${newVal}`);
-        if(newVal !== val){
-          observe(newVal)
-          val = newVal;
-          undate();
-        }
+  const app = new KVue({
+    el: "#app",
+    data: {
+        counter: 2,
+        html: '这里是加入的<span style="color:red">html</span>'
+    },
+    methods: {
+      add() {
+        this.counter++
       }
-    })
-  }
-  function undate(){
-    app.innerText = obj.foo
-  }
-  function observe(obj){
-    if(typeof obj !== "object" || obj == null){
-      return
-    }
-    Object.keys(obj).forEach(key=>{
-      defineReactive(obj,key,obj[key])
-    })
-  }
-  function set(obj,key,val){
-    defineReactive(obj,key,val)
-  }
-  const obj = {foo: 'foo',bar : 'bar',a : {b: 1} };
-  observe(obj);
-  
-  set(obj,'duang','duang');
-  obj.duang;
-
+    },
+  })
   // setInterval(()=>{
-  //   obj.foo = new Date().toLocaleString();
+  //   app.counter++
   // },1000)
+  
 </script>
+
 </body>
 </html>
